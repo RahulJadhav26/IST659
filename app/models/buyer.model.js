@@ -1,30 +1,33 @@
 module.exports = (sequelize, Sequelize) => {
-    const buyer = sequelize.define("buyer", {
-      buyer_id:{
-        type: Sequelize.UUID,
-        defaultValue: function() {
-        return generateMyId()
-        },
-        allowNull: false,
+    const Buyer = sequelize.define("buyer", {
+      buyerid:{
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        // defaultValue: 100,
         primaryKey: true
       },
-      buyer_firstname: {
+      buyerfirstname: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      buyer_lastname: {
+      buyerlastname: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      buyer_email: {
+      buyeremail: {
         allowNull: false,
         unique: true,
-        type: Sequelize.BOOLEAN
+        validate:{isEmail: true},
+        type: Sequelize.STRING
       },
-      buyer_phone: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      }
+      buyerpassword: {
+        // allowNull: false,
+        type: Sequelize.STRING
+      },
+    //   buyer_phone: {
+    //     // allowNull: true,
+    //     type: Sequelize.INTEGER
+    //   }
     });
-    return buyer;
+    return Buyer;
   };
