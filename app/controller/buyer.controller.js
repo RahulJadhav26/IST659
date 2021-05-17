@@ -51,4 +51,3 @@ exports.findOne = (req,res) =>{
             .send({message: "Error in Finding"})
         })
 }
-
