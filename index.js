@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 8080
 // };
 
 // connect to db
-const db = require("./app/models/index.js")
+const db = require("./app/models/")
 db.Sequelize.authenticate().then(() => {
       console.log("Connected to the database!");
     })
@@ -43,6 +43,10 @@ console.log("Drop and re-sync db.");
 
 const buyers = require('./app/routes/buyer')
 app.use('/api/buyer', buyers)
+
+
+const sellers = require('./app/routes/seller')
+app.use('/api/seller', sellers)
 
 // Listen
 app.listen(PORT, ()=>{

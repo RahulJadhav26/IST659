@@ -7,7 +7,7 @@ const buyer = require("../controller/buyer.controller")
 
 router.post("/", buyer.create)
 
-router.get("/:email", buyer.findOne)
+router.get("/:book", buyer.findOne)
 router.get("/", buyer.findOne)
 
 

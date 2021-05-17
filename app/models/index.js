@@ -12,6 +12,9 @@ const db = {}
 db.Sequelize = Sequelize
 db.Sequelize = sequelize
 
+
+db.seller = require("./seller.model")(sequelize,Sequelize)
 db.buyer = require("./buyer.model.js")(sequelize,Sequelize)
+
 
 module.exports = db 

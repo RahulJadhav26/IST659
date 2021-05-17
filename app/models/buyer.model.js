@@ -3,7 +3,6 @@ module.exports = (sequelize, Sequelize) => {
       buyerid:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        // defaultValue: 100,
         primaryKey: true
       },
       buyerfirstname: {

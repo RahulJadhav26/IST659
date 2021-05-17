@@ -1,7 +1,7 @@
 const db = require('../models/')
 const Buyer = db.buyer
 const Op = db.Sequelize.Op;
-console.log(Buyer)
+
 
 // Create and Save a new Buyer
 
@@ -13,7 +13,6 @@ console.log(Buyer)
     }
                 // Create user                
                     const buyer = new Buyer({
-                        buyerid : 100* Math.random(),
                         buyerfirstname: req.body.buyer_firstname,
                         buyerlastname: req.body.buyer_lastname,
                         buyeremail: req.body.buyer_email,
