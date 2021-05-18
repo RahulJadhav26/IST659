@@ -22,8 +22,28 @@ const PORT = process.env.PORT || 8080
 //     database:'ist659'  
 // };
 
-// connect to db
+
 const db = require("./app/models/")
+
+// ASSOCIATIONS
+
+// Seller has many Books
+db.seller.hasMany(db.book)
+// Book Belongs to Seller
+db.book.belongsTo(db.seller)
+
+// // book has many Listings
+// db.book.hasMany(db.list)
+// // list belong to book
+// db.list.belongsTo(db.book)
+
+// // Seller has many Listings
+// db.seller.hasMany(db.list)
+// // list belong to a seller
+// db.list.hasMany(db.seller)
+
+// List has many
+// connect to db
 db.Sequelize.authenticate().then(() => {
       console.log("Connected to the database!");
     })
@@ -47,6 +67,10 @@ app.use('/api/buyer', buyers)
 
 const sellers = require('./app/routes/seller')
 app.use('/api/seller', sellers)
+
+const books = require('./app/routes/book')
+app.use('/api/book', books)
+
 
 // Listen
 app.listen(PORT, ()=>{

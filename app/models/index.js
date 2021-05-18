@@ -15,6 +15,8 @@ db.Sequelize = sequelize
 
 db.seller = require("./seller.model")(sequelize,Sequelize)
 db.buyer = require("./buyer.model.js")(sequelize,Sequelize)
+db.book = require("./book.model.js")(sequelize,Sequelize)
+// db.list = require("./listing.model")(sequelize,Sequelize)
 
-
+console.log(db)
 module.exports = db 
