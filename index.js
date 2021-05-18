@@ -40,9 +40,9 @@ db.book.belongsTo(db.seller)
 // // Seller has many Listings
 // db.seller.hasMany(db.list)
 // // list belong to a seller
-// db.list.hasMany(db.seller)
+// db.list.belongsTo(db.seller)
 
-// List has many
+
 // connect to db
 db.Sequelize.authenticate().then(() => {
       console.log("Connected to the database!");

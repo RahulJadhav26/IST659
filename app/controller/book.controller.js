@@ -1,6 +1,6 @@
 const db = require("../models")
 const Book = db.book
-// const List = db.list
+const List = db.list
 console.log(db)
 // Create a new Book Listing
 
@@ -23,18 +23,18 @@ exports.create = (req,res)=>{
     // Save in the Database 
 
     Book.create(book.dataValues).then(data => {
-        // List.create(
-        //     {
-        //         book_id: data.book_id,
-        //         seller_id: data.sellerSellerid
-        //      }).then(data1 =>{
-        //         res.send(data1)
-        //      }).catch(err=>{
-        //         res.status(500).send({
-        //             message:
-        //             err.message || "Some error occurred while registering the book "
-        //             })
-        //     })
+        List.create(
+            {
+                book_id: data.book_id,
+                sellerSellerid: data.sellerSellerid
+             }).then(data1 =>{
+                res.send(data1)
+             }).catch(err=>{
+                res.status(500).send({
+                    message:
+                    err.message || "Some error occurred while registering the book "
+                    })
+            })
         res.send(data)
     }).catch(err=>{
         res.status(500).send({
