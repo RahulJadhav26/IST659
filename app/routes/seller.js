@@ -8,6 +8,6 @@ const seller = require("../controller/seller.controller")
 
 router.post("/",seller.create)
 
-router.get("/",seller.findOne)
+router.post("/login",seller.findOne)
 
 module.exports = router

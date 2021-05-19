@@ -5,7 +5,7 @@ console.log(Seller)
 exports.create = (req,res)=>{
     // Validate request
 
-    if(!req.body.seller_firstname){
+    if(!req.body.seller_firstname || !req.body.seller_lastname || !req.body.seller_email || !req.body.seller_password){
         res.status(400).send({message:"Content can not be empty!"});
         return
     }
@@ -31,8 +31,8 @@ exports.create = (req,res)=>{
 // Retrieve a buyer from the database using email
 
 exports.findOne = (req,res)=>{
-    const email = req.query.seller_email
-    const password = req.query.seller_password
+    const email = req.body.seller_email
+    const password = req.body.seller_password
 
     Seller.findOne({where: {selleremail :email, sellerpassword : password }})
         .then(data=>{
