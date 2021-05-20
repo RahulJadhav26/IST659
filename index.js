@@ -32,16 +32,6 @@ db.seller.hasMany(db.book)
 // Book Belongs to Seller
 db.book.belongsTo(db.seller)
 
-// // book has many Listings
-// db.book.hasMany(db.list)
-// // list belong to book
-// db.list.belongsTo(db.book)
-
-// // Seller has many Listings
-// db.seller.hasMany(db.list)
-// // list belong to a seller
-// db.list.belongsTo(db.seller)
-
 
 // connect to db
 db.Sequelize.authenticate().then(() => {
@@ -56,9 +46,9 @@ db.Sequelize.authenticate().then(() => {
 db.Sequelize.sync()
 
 // to force sync during development
-db.Sequelize.sync({ force: true }).then(() => {
-console.log("Drop and re-sync db.");
-});
+// db.Sequelize.sync({ force: true }).then(() => {
+// console.log("Drop and re-sync db.");
+// });
 // Routes
 
 const buyers = require('./app/routes/buyer')
@@ -71,6 +61,8 @@ app.use('/api/seller', sellers)
 const books = require('./app/routes/book')
 app.use('/api/book', books)
 
+const requests = require("./app/routes/request")
+app.use('/api/request/', requests)
 
 // Listen
 app.listen(PORT, ()=>{

@@ -51,3 +51,19 @@ exports.findOne = (req,res) =>{
             .send({message: "Error in Finding"})
         })
 }
+exports.findBuyerById = (req,res) =>{
+    const buyerid = req.query.buyerid
+    console.log(buyerid)
+    Buyer.findAll({where: { buyerid: buyerid}})
+    .then(data =>{
+        console.log(data)
+        if(!data){
+            res.status(404).send("Not Found")
+        }else res.send(data)
+    })
+    .catch(err =>{
+        res
+        .status(500)
+        .send({message: "Error in Finding"})
+    })
+} 

@@ -74,3 +74,31 @@ exports.findById = (req,res)=>{
                 .send({message:"Error in Finding", err})
         })
 }
+exports.findAll = (req,res)=>{
+
+    Book.findAll()
+        .then(data=>{
+            if(!data){
+                res.send({message:"No books listed by Sellers Yet"})
+            }else{
+                res.send(data)
+            }
+        }).catch(err=>{
+            res.status(500)
+                .send({message:"Error in Finding", err})
+        })
+}
+exports.findByBookId = (req,res)=>{
+    const seller_id = req.query.sellerSellerid
+    Book.findAll({where:{ sellerSellerid:seller_id }})
+    .then(data=>{
+        if(!data){
+            res.send({message:"No Books listed by sellers Yet"})
+        }else{
+            res.send(data)
+        }
+    }).catch(err=>{
+        res.status(500)
+                .send({message:"Error in Finding", err})
+    })
+}

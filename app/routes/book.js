@@ -8,7 +8,7 @@ const book = require("../controller/book.controller")
 router.post("/registerBook", book.create)
 
 router.get("/listings", book.findList)
-
-router.get("/sellerBooks", book.findById)
+router.get("/",book.findAll)
+router.get("/sellerBooks", book.findByBookId)
 
 module.exports = router

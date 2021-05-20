@@ -9,6 +9,7 @@ router.post("/", buyer.create)
 
 router.get("/:book", buyer.findOne)
 router.get("/", buyer.findOne)
+router.get('/buyerid',buyer.findBuyerById)
 
 
 module.exports = router
