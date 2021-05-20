@@ -27,6 +27,9 @@ module.exports = (sequelize, Sequelize) => {
     //     // allowNull: true,
     //     type: Sequelize.INTEGER
     //   }
+    },{
+      // // don't add the timestamp attributes (updatedAt, createdAt)
+      timestamps: false,
     });
     return Buyer;
   };

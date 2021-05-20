@@ -36,6 +36,9 @@ module.exports = (sequelize, Sequelize) => {
             required:true,
             type: Sequelize.INTEGER
         }
-    });
+    },{
+        // // don't add the timestamp attributes (updatedAt, createdAt)
+        timestamps: false,
+      });
     return Book;
 };

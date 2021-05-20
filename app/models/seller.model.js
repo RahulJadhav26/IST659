@@ -23,6 +23,11 @@ module.exports = (sequelize,Sequelize) =>{
           allowNull: false,
           type: Sequelize.STRING
         },
+        
+
+    },{
+      // // don't add the timestamp attributes (updatedAt, createdAt)
+      timestamps: false,
     });
     return Seller;
 

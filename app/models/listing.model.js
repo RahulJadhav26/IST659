@@ -13,6 +13,9 @@ module.exports = (sequelize, Sequelize) =>{
             type: Sequelize.INTEGER,
             allowNull:false,
         }
-    })
+    },{
+        // // don't add the timestamp attributes (updatedAt, createdAt)
+        timestamps: false,
+      })
     return List
 }

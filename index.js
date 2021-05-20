@@ -14,15 +14,6 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 const PORT = process.env.PORT || 3000 
 
-// var config =
-// {
-//     host: 'project659.c5lam8sfki7y.us-east-1.rds.amazonaws.com',
-//     user: 'master',
-//     password: 'password',  
-//     database:'ist659'  
-// };
-
-
 const db = require("./app/models/")
 
 // ASSOCIATIONS
@@ -46,9 +37,9 @@ db.Sequelize.authenticate().then(() => {
 db.Sequelize.sync()
 
 // to force sync during development
-// db.Sequelize.sync({ force: true }).then(() => {
-// console.log("Drop and re-sync db.");
-// });
+db.Sequelize.sync({ force: true }).then(() => {
+console.log("Drop and re-sync db.");
+});
 // Routes
 
 const buyers = require('./app/routes/buyer')
