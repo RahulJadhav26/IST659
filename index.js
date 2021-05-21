@@ -37,9 +37,9 @@ db.Sequelize.authenticate().then(() => {
 db.Sequelize.sync()
 
 // to force sync during development
-db.Sequelize.sync({ force: true }).then(() => {
-console.log("Drop and re-sync db.");
-});
+// db.Sequelize.sync({ force: true }).then(() => {
+// console.log("Drop and re-sync db.");
+// });
 // Routes
 
 const buyers = require('./app/routes/buyer')
